@@ -8,7 +8,7 @@ This is a [Docker](https://www.docker.com/) build recipe for [Tao Testing](http:
 Docker and docker-compose must be installed.
 This repo was tested on a MAC OSX machine running High Sierra.
 
-## Getting Started
+## Simple Start
 
 After pulling down the repository, just run ...
 ```
@@ -16,11 +16,17 @@ After pulling down the repository, just run ...
 ```
 This will kick off the dockerbuild and docker-compose
 
-Open http://localhost and follow installation wizard
+## More Detail ...
+### TAO Version 3.1+
+1. Install Docker and Docker Compose
+2. Modify the variables inside **setup.sh** and **.env** according to your needs and host parameters
+3. Execute `sudo ./setup.sh` from the command line
+4. Open http://your-host and follow installation wizard
     * Use **mysql** as **database host** name
     * Use **TAO_MYSQL_DB** value from **setup.sh** as **database name**
-    * Use **TAO_MYSQL_USER** value from **setup.sh** as **database user**
     * Select the **Overwrite option**
+
+**Note:** OPCache is enabled in the php.ini.
 
 
 

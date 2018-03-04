@@ -1,7 +1,3 @@
-# taodocker
-PHP/Apache/MySQL Implementation of OAT's TAO Testing Platform
-
-This is a [Docker](https://www.docker.com/) build recipe for [Tao Testing](http://taotesting.com/)  - an online testing and certification platform.
 
 ## This command will build dockerfile and launch
 ## docker-compose with tao and mysql
@@ -18,10 +14,28 @@ Open http://localhost and follow installation wizard
 
 
 
+# TAODOCKER
+
+PHP/Apache/MySQL Implementation of OAT's TAO Testing Platform
+
+This is a [Docker](https://www.docker.com/) build recipe for [Tao Testing](http://taotesting.com/)  - an online testing and certification platform.
+
+### Prerequisites
+
+Docker and docker-compose must be installed.
+This repo was tested on a MAC OSX machine running High Sierra.
+
+## Getting Started
+
+After pulling down the repository, just run ...
+```
+./setup.sh
+```
+This will kick off the dockerbuild and docker-compose
 
 
 
-
+## Acknowledgments
 
 -----------------
 From:  https://github.com/sorrell/docker-tao-web
@@ -32,3 +46,8 @@ Updates:
     Added OPCache
     Converted to use MySQL
     Other Dockerfile improvements
+
+
+
+
+

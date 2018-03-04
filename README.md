@@ -29,6 +29,16 @@ This will kick off the dockerbuild and docker-compose
 **Note:** OPCache is enabled in the php.ini.
 
 
+## Cleanup
+Hit ctrl-c to stop the containers from running
+If you want to start from scratch again ...
+
+```
+docker container prune
+docker volume prune
+```
+
+
 
 ## Acknowledgments
 

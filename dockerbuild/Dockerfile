@@ -41,16 +41,26 @@ RUN docker-php-ext-install -j$(nproc) \
 
 RUN a2enmod rewrite
 
-ADD http://releases.taotesting.com/TAO_3.1.0-RC7_build.zip /tmp/TAO_3.1.0-RC7_build.zip
-ADD https://github.com/mathjax/MathJax/archive/2.7.0.zip /tmp/2.7.0.zip
+# Created a src folder to permanently store the source .zip
+# files so they don't have to be downloaded on each docker-compose up
+#
+# Also, docker build context cache's in this way so it does not cause
+# a dowload from the web each time you run setup.sh
+
+#ADD http://releases.taotesting.com/TAO_3.1.0-RC7_build.zip /tmp/TAO_3.1.0-RC7_build.zip
+COPY ./dockerbuild/src/TAO_3.2.0-RC2_build.zip /tmp/TAO_3.2.0-RC2_build.zip
+
+# Grabbing the latest MathJax release 2.7.3
+#ADD https://github.com/mathjax/MathJax/archive/2.7.0.zip /tmp/2.7.0.zip
+COPY ./dockerbuild/src/MathJax-2.7.3.zip /tmp/MathJax-2.7.3.zip
 
 WORKDIR /tmp
 
-RUN unzip -q TAO_3.1.0-RC7_build.zip; \
-    mv TAO_3.1.0-RC7_build web; \
+RUN unzip -q TAO_3.2.0-RC2_build.zip; \
+    mv TAO_3.2.0-RC2_build web; \
     mv web /home/; \
-    unzip -q 2.7.0.zip; \
-    mv MathJax-2.7.0/* /home/web/taoQtiItem/views/js/mathjax/; \
+    unzip -q MathJax-2.7.3.zip; \
+    mv MathJax-2.7.3/* /home/web/taoQtiItem/views/js/mathjax/; \
     chown -R www-data.www-data /home/web
 
 ADD ./dockerbuild/apache.conf /etc/apache2/sites-enabled/000-default.conf

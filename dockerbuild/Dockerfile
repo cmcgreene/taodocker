@@ -44,12 +44,12 @@ RUN a2enmod rewrite
 # Created a src folder to permanently store the source .zip
 # files so they don't have to be downloaded on each docker-compose up
 
-ADD http://releases.taotesting.com/TAO_3.2.0-RC2_build.zip /tmp/TAO_3.2.0-RC2_build.zip
-#COPY ./dockerbuild/src/TAO_3.2.0-RC2_build.zip /tmp/TAO_3.2.0-RC2_build.zip
+#ADD http://releases.taotesting.com/TAO_3.2.0-RC2_build.zip /tmp/TAO_3.2.0-RC2_build.zip
+COPY ./dockerbuild/src/TAO_3.2.0-RC2_build.zip /tmp/TAO_3.2.0-RC2_build.zip
 
 # Grabbing the latest MathJax release 2.7.3
-ADD https://github.com/mathjax/MathJax/archive/2.7.3.zip /tmp/2.7.3.zip
-#COPY ./dockerbuild/src/MathJax-2.7.3.zip /tmp/MathJax-2.7.3.zip
+#ADD https://github.com/mathjax/MathJax/archive/2.7.3.zip /tmp/2.7.3.zip
+COPY ./dockerbuild/src/MathJax-2.7.3.zip /tmp/MathJax-2.7.3.zip
 
 WORKDIR /tmp
 

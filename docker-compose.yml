@@ -6,6 +6,8 @@ services:
       - mysql
     ports:
       - "80:80"
+    volumes:
+      - tao:/home/web
   mysql:
     container_name: mysql-dev
     image: mysql/mysql-server:5.7
@@ -19,6 +21,8 @@ services:
       MYSQL_PASSWORD: ${TAO_MYSQL_PASSWORD}
       MYSQL_DATABASE: ${TAO_MYSQL_DB}
 volumes:
+  tao:
+    driver: local
   data:
     driver: local
 

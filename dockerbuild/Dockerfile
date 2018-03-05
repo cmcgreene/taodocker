@@ -43,9 +43,6 @@ RUN a2enmod rewrite
 
 # Created a src folder to permanently store the source .zip
 # files so they don't have to be downloaded on each docker-compose up
-#
-# Also, docker build context cache's in this way so it does not cause
-# a dowload from the web each time you run setup.sh
 
 #ADD http://releases.taotesting.com/TAO_3.1.0-RC7_build.zip /tmp/TAO_3.1.0-RC7_build.zip
 COPY ./dockerbuild/src/TAO_3.2.0-RC2_build.zip /tmp/TAO_3.2.0-RC2_build.zip

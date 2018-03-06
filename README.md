@@ -57,6 +57,7 @@ Updates:
     Moved to docker-compose version 3
     Added OPCache
     Converted to use MySQL
+    Added Volume to TAO container so it can persist
     Other Dockerfile improvements
 
 

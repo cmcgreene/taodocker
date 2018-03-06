@@ -8,6 +8,10 @@ This is a [Docker](https://www.docker.com/) build recipe for [Tao Testing](http:
 Docker and docker-compose must be installed.
 This repo was tested on a MAC OSX machine running High Sierra.
 
+docker-compose version 1.18.0, build 8dd22a9
+docker version 17.12.0-ce
+
+
 ## Simple Start
 
 After pulling down the repository, just run ...
@@ -15,6 +19,9 @@ After pulling down the repository, just run ...
 ./setup.sh
 ```
 This will kick off the dockerbuild and docker-compose
+
+To use local copies of the TAO and MathJax sources, copy them to the /dockerbuild/src directory and uncomment the lines in the Dockerfile ... this allows docker to cache the Dockerfile build completely.
+
 
 ## More Detail ...
 ### TAO Version 3.1+

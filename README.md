@@ -50,12 +50,15 @@ docker volume prune
 ## Acknowledgments
 
 -----------------
-From:  https://github.com/sorrell/docker-tao-web
+I found this repo from sorrell to be the most useful.
+It was used as a starting point ...
+Base Repo:  https://github.com/sorrell/docker-tao-web
 
-Updates:
+Updates to sorrell:
 
     Moved to docker-compose version 3
     Added OPCache
+    Use latest versions of TAO and MathJax
     Converted to use MySQL
     Added Volume to TAO container so it can persist
     Other Dockerfile improvements

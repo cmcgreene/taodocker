@@ -45,11 +45,11 @@ RUN a2enmod rewrite
 # files so they don't have to be downloaded on each docker-compose up
 
 #ADD http://releases.taotesting.com/TAO_3.2.0-RC2_build.zip /tmp/TAO_3.2.0-RC2_build.zip
-COPY ./dockerbuild/src/TAO_3.2.0-RC2_build.zip /tmp/TAO_3.2.0-RC2_build.zip
+COPY ./src/TAO_3.2.0-RC2_build.zip /tmp/TAO_3.2.0-RC2_build.zip
 
 # Grabbing the latest MathJax release 2.7.3
 #ADD https://github.com/mathjax/MathJax/archive/2.7.3.zip /tmp/2.7.3.zip
-COPY ./dockerbuild/src/MathJax-2.7.3.zip /tmp/MathJax-2.7.3.zip
+COPY ./src/MathJax-2.7.3.zip /tmp/MathJax-2.7.3.zip
 
 WORKDIR /tmp
 
@@ -60,10 +60,10 @@ RUN unzip -q TAO_3.2.0-RC2_build.zip; \
     mv MathJax-2.7.3/* /home/web/taoQtiItem/views/js/mathjax/; \
     chown -R www-data.www-data /home/web
 
-ADD ./dockerbuild/apache.conf /etc/apache2/sites-enabled/000-default.conf
+ADD ./apache.conf /etc/apache2/sites-enabled/000-default.conf
 RUN sed -i -e "s/TAO_SERVER_NAME/${TAO_SERVER_NAME}/g" /etc/apache2/sites-enabled/000-default.conf
 
-ADD ./dockerbuild/php.ini /usr/local/etc/php/
+ADD ./php.ini /usr/local/etc/php/
 
 EXPOSE 80
 

@@ -16,7 +16,7 @@ docker version 17.12.0-ce
 
 After pulling down the repository, just run ...
 ```
-./setup.sh
+./start-tao.sh
 ```
 This will kick off the dockerbuild and docker-compose
 

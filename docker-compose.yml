@@ -1,13 +1,18 @@
 version: '3'
 services:
   tao:
-    image: taos
+    build:
+      context: ./dockerbuild
+      dockerfile: tao3.2.0RC2.Dockerfile
+      args: 
+        TAO_SERVER_NAME: ${TAO_SERVER_NAME}
     links:
       - mysql
     ports:
       - "80:80"
     volumes:
       - tao:/home/web
+
   mysql:
     container_name: mysql-dev
     image: mysql/mysql-server:5.7
@@ -20,6 +25,7 @@ services:
       MYSQL_USER: ${TAO_MYSQL_USER}
       MYSQL_PASSWORD: ${TAO_MYSQL_PASSWORD}
       MYSQL_DATABASE: ${TAO_MYSQL_DB}
+      
 volumes:
   tao:
     driver: local

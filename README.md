@@ -20,17 +20,19 @@ After pulling down the repository, just run ...
 ```
 This will kick off the dockerbuild and docker-compose
 
-To use local copies of the TAO and MathJax sources, copy them to the /dockerbuild/src directory and uncomment the lines in the Dockerfile ... this allows docker to cache the Dockerfile build completely.
+NOTE:  Local copies of the TAO and MathJax sources are located in the /dockerbuild/src folder ... this allows docker to cache the Dockerfile build completely.
+
+Also, the dockerfile is named "tao3.2.0RC2.Dockerfile" so we use different dockerfiles to select different build flavors of TAO.  Currently, we are set up for TAO 3.2.0 RC2
 
 
 ## More Detail ...
 ### TAO Version 3.1+
 1. Install Docker and Docker Compose
-2. Modify the variables inside **setup.sh** and **.env** according to your needs and host parameters
-3. Execute `sudo ./setup.sh` from the command line
+2. Modify the variables inside **.env** in the dockerbuild folder according to your needs and host parameters
+3. Execute `sudo ./start-tao.sh` from the command line
 4. Open http://your-host and follow installation wizard
     * Use **mysql** as **database host** name
-    * Use **TAO_MYSQL_DB** value from **setup.sh** as **database name**
+    * Use **TAO_MYSQL_DB** value from **.env** as **database name**
     * Select the **Overwrite option**
 
 **Note:** OPCache is enabled in the php.ini.
